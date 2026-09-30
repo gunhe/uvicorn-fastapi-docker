@@ -1,7 +1,9 @@
 # FROM python:3.12-slim
 FROM docker.1ms.run/python:3.12
 
-maintainer="f15827325743@163.com"
+# 设置时区为东八区
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /code
 
